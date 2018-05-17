@@ -1,0 +1,105 @@
+# depslib dependency file v1.0
+1526492568 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Publicacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526492633 /home/nmiguenz/Escritorio/Parcial/Parcial/Publicacion.h
+	"Cliente.h"
+
+1526245685 /home/nmiguenz/Escritorio/Parcial/Parcial/utn.h
+
+1526245662 source:/home/nmiguenz/Escritorio/Parcial/Parcial/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1526575953 source:/home/nmiguenz/Escritorio/Parcial/Parcial/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+	"Informar.h"
+
+1526571752 /home/nmiguenz/Escritorio/Parcial/Parcial/Cliente.h
+
+1526571765 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Cliente.h"
+	"utn.h"
+
+1526575859 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526575924 /home/nmiguenz/Escritorio/Parcial/Parcial/Informar.h
+
+1526571765 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Cliente.h"
+	"utn.h"
+
+1526571752 /home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Cliente.h
+
+1526245685 /home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/utn.h
+
+1526576229 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526492633 /home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Publicacion.h
+	"Cliente.h"
+
+1526575953 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+	"Informar.h"
+
+1526575924 /home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Informar.h
+
+1526492568 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/Publicacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526245662 source:/home/nmiguenz/Escritorio/Parcial/Parcial/Parcial NMiguenz/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
