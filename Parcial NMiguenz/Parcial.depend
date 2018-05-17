@@ -103,3 +103,55 @@
 	<string.h>
 	"utn.h"
 
+1526598597 source:c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Cliente.h"
+	"utn.h"
+
+1526598676 c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\cliente.h
+
+1526256484 c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\utn.h
+
+1526599349 source:c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526597876 c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\publicacion.h
+	"Cliente.h"
+
+1526595684 source:c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+	"Informar.h"
+
+1526586724 c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\informar.h
+
+1526598540 source:c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\publicacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Publicacion.h"
+	"Cliente.h"
+	"utn.h"
+
+1526595625 source:c:\users\nico\desktop\parcial\parcial\parcial nmiguenz\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+

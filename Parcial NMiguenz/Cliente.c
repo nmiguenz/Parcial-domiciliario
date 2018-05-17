@@ -9,10 +9,10 @@ static int proximoId();
 static int buscarLugarLibre(Cliente* array,int limite);
 
 
-/** \brief
- * \param array Cliente*
- * \param limite int
- * \return int
+/** \brief Inicializa la estructura clientes
+ * \param array Cliente* puntero a array
+ * \param limite int limite definido para la estructura cliente
+ * \return int [0] OK [1] ERROR
  *
  */
 int cliente_init(Cliente* array,int limite)
@@ -30,6 +30,13 @@ int cliente_init(Cliente* array,int limite)
     return retorno;
 }
 
+/** \brief Muestra el debug de la estructura Cliente
+ *
+ * \param array Cliente* puntero a array
+ * \param limite int limite definido para cliente
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int cliente_mostrarDebug(Cliente* array,int limite)
 {
     int retorno = -1;
@@ -45,6 +52,14 @@ int cliente_mostrarDebug(Cliente* array,int limite)
     return retorno;
 }
 
+/** \brief Muestra cliente a partir del IdCliente que recibe
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para cliente
+ * \param idCliente int ID del cliente que estoy buscando
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int cliente_mostrarPorId(Cliente* array,int limite, int idCliente)
 {
     int retorno = -1;
@@ -61,6 +76,13 @@ int cliente_mostrarPorId(Cliente* array,int limite, int idCliente)
     return retorno;
 }
 
+/** \brief Da de alta al cliente
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para Cliente
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int cliente_alta(Cliente* array,int limite)
 {
     int retorno = -1;
@@ -86,7 +108,7 @@ int cliente_alta(Cliente* array,int limite)
                         strcpy(array[i].cuit,auxCuit);
                         array[i].idCliente = proximoId();
                         array[i].isEmpty = 0;
-                        printf("El ID del Cliente es: %d",array[i].idCliente);
+                        printf("El ID del Cliente es: %d\n",array[i].idCliente);
                     }
                 }
             }
@@ -105,7 +127,15 @@ int cliente_alta(Cliente* array,int limite)
 }
 
 
-int cliente_baja(Cliente* array,int limite, int id)
+/** \brief Da de baja al cliente por el ID
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para cliente
+ * \param idCliente int Id del cliente que estoy buscando
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int cliente_baja(Cliente* array,int limite, int idCliente)
 {
     int retorno = -1;
     int i;
@@ -114,7 +144,7 @@ int cliente_baja(Cliente* array,int limite, int id)
         retorno = -2;
         for(i=0;i<limite;i++)
         {
-            if(!array[i].isEmpty && array[i].idCliente==id)
+            if(!array[i].isEmpty && array[i].idCliente==idCliente)
             {
                 array[i].isEmpty = 1;
                 retorno = 0;
@@ -125,7 +155,15 @@ int cliente_baja(Cliente* array,int limite, int id)
     return retorno;
 }
 
-int cliente_modificacion(Cliente* array,int limite, int id)
+/** \brief Modifica al cliente a partir de su Id
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para el cliente
+ * \param idCliente int Id del cliente buscado
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int cliente_modificacion(Cliente* array,int limite, int idCliente)
 {
     int retorno = -1;
     int i;
@@ -137,7 +175,7 @@ int cliente_modificacion(Cliente* array,int limite, int id)
         retorno = -2;
         for(i=0;i<limite;i++)
         {
-            if(!array[i].isEmpty && array[i].idCliente==id)
+            if(!array[i].isEmpty && array[i].idCliente==idCliente)
             {
                 if(!getValidString("\nNombre? ","\nEso no es un nombre","El maximo es 50",auxNombre,50,2))
                 {
@@ -166,6 +204,14 @@ int cliente_modificacion(Cliente* array,int limite, int id)
     return retorno;
 }
 
+/** \brief Ordena a los clientes de menor a mayo o de mayor a menor segun el "orden"
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para el cliente
+ * \param orden int [1] de menor a mayor, [0] de mayor a menor
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int cliente_ordenar(Cliente* array,int limite, int orden)
 {
     int retorno = -1;
@@ -196,6 +242,13 @@ int cliente_ordenar(Cliente* array,int limite, int orden)
     return retorno;
 }
 
+/** \brief Busca el lugar libre en el array de clientes
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para el cliente
+ * \return int [0] OK [1] ERROR
+ *
+ */
 static int buscarLugarLibre(Cliente* array,int limite)
 {
     int retorno = -1;
@@ -215,6 +268,11 @@ static int buscarLugarLibre(Cliente* array,int limite)
 }
 
 
+/** \brief Incremente el Id al ser llamada
+ *
+ * \return int retorna el valor correspondiente al proximoId
+ *
+ */
 static int proximoId()
 {
     static int proximoId = -1;
@@ -222,6 +280,16 @@ static int proximoId()
     return proximoId;
 }
 
+/** \brief Fuerza el alta de cliente
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para el array
+ * \param nombre char* fuerza el nombre
+ * \param apellido char* fuerza el apellido
+ * \param cuit char* fuerza el cuit
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int cliente_altaForzada(Cliente* array,int limite, char* nombre, char* apellido, char* cuit)
 {
 
@@ -244,8 +312,16 @@ int cliente_altaForzada(Cliente* array,int limite, char* nombre, char* apellido,
     }
     return retorno;
 }
-//Retorna un entero que es = a la posicion del Id.
-int cliente_buscarPorId(Cliente* array,int limite, int id)
+
+/** \brief retorna un entero que corresponde a la posicion del Id
+ *
+ * \param array Cliente* puntero al array
+ * \param limite int limite definido para cliente
+ * \param idCliente int id del cliente buscado
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id
+ *
+ */
+int cliente_buscarPorId(Cliente* array,int limite, int idCliente)
 {
     int retorno = -1;
     int i;
@@ -254,7 +330,7 @@ int cliente_buscarPorId(Cliente* array,int limite, int id)
         retorno = -2;
         for(i=0;i<limite;i++)
         {
-            if(!array[i].isEmpty && array[i].idCliente==id)
+            if(!array[i].isEmpty && array[i].idCliente==idCliente)
             {
                 retorno=i;
                 break;

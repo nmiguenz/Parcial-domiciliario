@@ -19,8 +19,8 @@ int publicacion_mostrar_porIdPublicacion(Publicacion* publicacion,int limite, Cl
 int publicacion_mostrarDebug(Publicacion* publicacion,int limite);
 int publicacion_mostrarPorIdCliente(Publicacion* publicacion, int limite, int idCliente);
 int publicacion_alta(Publicacion* publicacion,int limite,int id);
-int publicacion_pausar(Publicacion* publicacion,int limite, int id);//
-int publicacion_reanudar(Publicacion* publicacion,int limite, int id);//
+int publicacion_pausar(Publicacion* publicacion,int limite, int idPublicacion);
+int publicacion_reanudar(Publicacion* publicacion,int limite, int idPublicacion);//
 int publicacion_cliente_baja(Publicacion* publicacion,int limite,Cliente* array,int limCliente ,int id);
 int publicacion_modificacion(Publicacion* publicacion,int limite, int id);
 int publicacion_ordenar(Publicacion* publicacion,int limite, int orden);

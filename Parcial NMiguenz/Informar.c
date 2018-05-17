@@ -6,6 +6,15 @@
 #include "Cliente.h"
 #include "utn.h"
 
+/** \brief Imprime la cantidad de publicaciones que tiene cada cliente
+ *
+ * \param arrayCliente Cliente* puntero al array de clientes
+ * \param limite int limite definido para cliente
+ * \param publicaciones Publicacion* puntero a publicacion
+ * \param lenPublicacion int limite definido para publicacion
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_cliente_imprimir(Cliente* arrayCliente,int limite, Publicacion* publicaciones, int lenPublicacion)
 {
     int retorno = -1;
@@ -37,6 +46,15 @@ int informar_cliente_imprimir(Cliente* arrayCliente,int limite, Publicacion* pub
     return retorno;
 }
 
+/** \brief Informa las publicaciones con el CUIT del cliente
+ *
+ * \param arrayCliente Cliente* puntero al array de cliente
+ * \param limite int limite definido para cliente
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicacion
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_publicaciones_imprimir(Cliente* arrayCliente,int limite, Publicacion* publicaciones, int lenPublicacion)
 {
     int retorno = -1;
@@ -67,6 +85,15 @@ int informar_publicaciones_imprimir(Cliente* arrayCliente,int limite, Publicacio
     return retorno;
 }
 
+/** \brief Muestra al cliente con mas publicaciones activas
+ *
+ * \param arrayCliente Cliente* puntero al array de cliente
+ * \param lenCliente int limite definido para cliente
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicaciones
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_ClienteConMasPublicacionesActivas(Cliente* arrayCliente,int lenCliente, Publicacion* publicaciones, int lenPublicacion)
 {
     int retorno = -1;
@@ -106,6 +133,15 @@ int informar_ClienteConMasPublicacionesActivas(Cliente* arrayCliente,int lenClie
     return retorno;
 }
 
+/** \brief Muestra el cliente con mas publicaciones pausadas
+ *
+ * \param arrayCliente Cliente* puntero al array de cliente
+ * \param lenCliente int limite definido para cliente
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicacion
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_ClienteConMasPublicacionesPausados(Cliente* arrayCliente,int lenCliente, Publicacion* publicaciones, int lenPublicacion)
 {
     int retorno = -1;
@@ -148,6 +184,15 @@ int informar_ClienteConMasPublicacionesPausados(Cliente* arrayCliente,int lenCli
     return retorno;
 }
 
+/** \brief Informa al cliente con mas publicaciones
+ *
+ * \param arrayCliente Cliente* puntero al array de cliente
+ * \param lenCliente int limite definido para cliente
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicaciones
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_ClienteConMasPublicaciones(Cliente* arrayCliente,int lenCliente, Publicacion* publicaciones, int lenPublicacion)
 {
     int retorno = -1;
@@ -187,6 +232,14 @@ int informar_ClienteConMasPublicaciones(Cliente* arrayCliente,int lenCliente, Pu
     return retorno;
 }
 
+/** \brief Muestra la cantidad de publicaciones por rubro
+ *
+ * \param publicacion Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicaciones
+ * \param rubro int entero correspondiente a la cantidad total de rubros admitidos
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_cantidadPublicacionesPorRubro(Publicacion* publicacion, int lenPublicacion, int rubro)
 {
     int retorno=-1;
@@ -206,6 +259,14 @@ int informar_cantidadPublicacionesPorRubro(Publicacion* publicacion, int lenPubl
     return retorno;
 }
 
+/** \brief Muestra al rubro con mas publicaciones activas
+ *
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicaciones
+ * \param rubros int entero correspondiente a la cantidad total de rubros admitidos
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_rubroMasPublicacionesActivas(Publicacion* publicaciones,int lenPublicacion,int rubros)
 {
     int retorno=-1;
@@ -239,6 +300,14 @@ int informar_rubroMasPublicacionesActivas(Publicacion* publicaciones,int lenPubl
     return retorno;
 }
 
+/** \brief Muestra el rubro con menos publicaciones activas
+ *
+ * \param publicaciones Publicacion* puntero a publicaciones
+ * \param lenPublicacion int limite definido para publicaciones
+ * \param rubros int entero correspondiente a la cantidad total de rubros admitidos
+ * \return int [-1] ERROR [0] OK
+ *
+ */
 int informar_rubroMenosPublicacionesActivas(Publicacion* publicaciones,int lenPublicacion,int rubros)
 {
     int retorno=-1;

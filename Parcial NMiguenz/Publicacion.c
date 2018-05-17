@@ -10,10 +10,10 @@ static int proximoId();
 static int buscarLugarLibre(Publicacion* publicacion,int limite);
 
 
-/** \brief
- * \param publicacion Publicacion*
- * \param limite int
- * \return int
+/** \brief Inicializa el array de publicaciones
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \return int [0] OK [1] ERROR
  *
  */
 int publicacion_init(Publicacion* publicacion,int limite)
@@ -31,6 +31,13 @@ int publicacion_init(Publicacion* publicacion,int limite)
     return retorno;
 }
 
+/** \brief Mustra el debug de publicacion
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_mostrarDebug(Publicacion* publicacion,int limite)
 {
     int retorno = -1;
@@ -46,6 +53,15 @@ int publicacion_mostrarDebug(Publicacion* publicacion,int limite)
     return retorno;
 }
 
+/** \brief Muestra el contenido de publicacion en la posicion i
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param array Cliente* puntero al array cliente
+ * \param limCliente int limite definido para Cliente
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_mostrar(Publicacion* publicacion,int limite, Cliente* array, int limCliente)
 {
     int retorno = -1;
@@ -62,6 +78,16 @@ int publicacion_mostrar(Publicacion* publicacion,int limite, Cliente* array, int
     return retorno;
 }
 
+/** \brief Muestra los datos del cliente a quien corresponde esa publicacion
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param array Cliente* puntero al array
+ * \param limCliente int limite definido para cliente
+ * \param id int id de la publicacion buscada
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_mostrar_porIdPublicacion(Publicacion* publicacion,int limite, Cliente* array, int limCliente, int id)
 {
     int retorno = -1;
@@ -84,6 +110,14 @@ int publicacion_mostrar_porIdPublicacion(Publicacion* publicacion,int limite, Cl
     return retorno;
 }
 
+/** \brief Muestra la publicacion a partir del Id del cliente
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param idCliente int id del cliente de quien estoy buscando las publicaciones
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_mostrarPorIdCliente(Publicacion* publicacion, int limite, int idCliente)
 {
     int i;
@@ -95,7 +129,7 @@ int publicacion_mostrarPorIdCliente(Publicacion* publicacion, int limite, int id
             retorno = 0;
             if(!publicacion[i].isEmpty && publicacion[i].idCliente==idCliente)
             {
-                printf("ID:%d - Aviso: %s - Rubro: %d\n", publicacion[i].idPublicacion,
+                printf("ID Publicacion:%d - Aviso: %s - Rubro: %d\n", publicacion[i].idPublicacion,
                        publicacion[i].textoAviso, publicacion[i].rubro);
             }
         }
@@ -103,6 +137,14 @@ int publicacion_mostrarPorIdCliente(Publicacion* publicacion, int limite, int id
     return retorno;
 }
 
+/** \brief Da de altas las publicaciones a partir del ID de cliente
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param id int id del cliente de quien quiero dar de alta una publicacion
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_alta(Publicacion* publicacion,int limite,int id)
 {
     int retorno = -1;
@@ -144,7 +186,15 @@ int publicacion_alta(Publicacion* publicacion,int limite,int id)
     return retorno;
 }
 
-int publicacion_pausar(Publicacion* publicacion,int limite, int id)
+/** \brief Pone en pausa una publicacion activa al cambiar el [1] Activo por [0] Inactivo
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param idPublicacion int Id de la publicacion a pausar
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int publicacion_pausar(Publicacion* publicacion,int limite, int idPublicacion)
 {
     int retorno = -1;
     int i;
@@ -159,7 +209,7 @@ int publicacion_pausar(Publicacion* publicacion,int limite, int id)
             retorno = -2;
             for(i=0;i<limite;i++)
             {
-                if(!publicacion[i].isEmpty && publicacion[i].idPublicacion==id)
+                if(!publicacion[i].isEmpty && publicacion[i].idPublicacion==idPublicacion)
                 {
                     publicacion[i].estado = 0;
                     retorno = 0;
@@ -171,7 +221,15 @@ int publicacion_pausar(Publicacion* publicacion,int limite, int id)
     return retorno;
 }
 
-int publicacion_reanudar(Publicacion* publicacion,int limite, int id)
+/** \brief Pone en pausa una publicacion
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param idPublicacion int Id de la publicacion a pausar
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int publicacion_reanudar(Publicacion* publicacion,int limite, int idPublicacion)
 {
     int retorno = -1;
     int i;
@@ -186,7 +244,7 @@ int publicacion_reanudar(Publicacion* publicacion,int limite, int id)
             retorno = -2;
             for(i=0;i<limite;i++)
             {
-                if(!publicacion[i].isEmpty && publicacion[i].idPublicacion==id)
+                if(!publicacion[i].isEmpty && publicacion[i].idPublicacion==idPublicacion)
                 {
                     publicacion[i].estado = 1;
                     retorno = 0;
@@ -198,6 +256,16 @@ int publicacion_reanudar(Publicacion* publicacion,int limite, int id)
     return retorno;
 }
 
+/** \brief Da de baja al cliente y sus publicaciones
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param array Cliente* puntero al array de cliente
+ * \param limCliente int limite definido para cliente
+ * \param id int id del cliente a eliminar
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_cliente_baja(Publicacion* publicacion,int limite,Cliente* array,int limCliente ,int id)
 {
     int retorno = -1;
@@ -235,29 +303,14 @@ int publicacion_cliente_baja(Publicacion* publicacion,int limite,Cliente* array,
     return retorno;
 }
 
-int publicacion_bajaTodo(Publicacion* publicacion, Cliente* array, int limite, int limCliente, int id)
-{
-    int retorno = -1;
-    int i;
-    if(limite > 0 && publicacion != NULL)
-    {
-        retorno = -2;
-        for(i=0;i<limite;i++)
-        {
-            if(!array[i].isEmpty && array[i].idCliente==id)
-            {
-                i = publicacion_buscarPorId(publicacion,limite, array[i].idCliente);
-                publicacion_mostrar(publicacion,limite,array,limCliente);
-                //publicacion[i].isEmpty = 1;
-                retorno = 0;
-                break;
-            }
-        }
-    }
-    return retorno;
-}
-
-
+/** \brief Modificar publicacion a partir de su Id
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param id int Id de la publicacion a modificar
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_modificacion(Publicacion* publicacion,int limite, int id)
 {
     int retorno = -1;
@@ -319,6 +372,13 @@ int publicacion_ordenar(Publicacion* publicacion,int limite, int orden)
     return retorno;
 }
 
+/** \brief Busca un lugar libre en la estructura
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \return int retorna i correspondiente al lugar libre
+ *
+ */
 static int buscarLugarLibre(Publicacion* publicacion,int limite)
 {
     int retorno = -1;
@@ -338,6 +398,11 @@ static int buscarLugarLibre(Publicacion* publicacion,int limite)
 }
 
 
+/** \brief Incrementa en uno el Id
+ *
+ * \return int retorna la proxima posicion de Id
+ *
+ */
 static int proximoId()
 {
     static int proximoId = -1;
@@ -345,6 +410,19 @@ static int proximoId()
     return proximoId;
 }
 
+/** \brief Fuerza el alta de la publicacion
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param idCliente int Id de clienye
+ * \param array Cliente* puntero al array cliente
+ * \param limCliente int limite definido para cliente
+ * \param textoAviso char* puntero al aviso
+ * \param rubro int Define el rubro, que va desde 1 a 10
+ * \param estado int [1] ACTIVO [0] INACTIVO
+ * \return int [0] OK [1] ERROR
+ *
+ */
 int publicacion_altaForzada(Publicacion* publicacion,int limite,int idCliente, Cliente* array, int limCliente, char* textoAviso, int rubro, int estado)
 {
 
@@ -368,7 +446,14 @@ int publicacion_altaForzada(Publicacion* publicacion,int limite,int idCliente, C
     }
     return retorno;
 }
-//Retorna un entero que es = a la posicion del Id.
+/** \brief retorna un entero que corresponde a la posicion del Id
+ *
+ * \param publicacion Publicacion* puntero a publicacion
+ * \param limite int limite definido para publicacion
+ * \param id int id de la publicacion buscada
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id
+ *
+ */
 int publicacion_buscarPorId(Publicacion* publicacion,int limite, int id)
 {
     int retorno = -1;
